@@ -45,7 +45,9 @@ public class BatchScopesTest {
     @Test
     public void test() {
         final JobOperator jobOperator = BatchRuntime.getJobOperator();
-        Batches.waitForEnd(jobOperator, jobOperator.start("cdi", null));
+        Properties p = new Properties();
+        p.setProperty("aap2", "blah");
+        Batches.waitForEnd(jobOperator, jobOperator.start("cdi", p));
 
         assertEquals(2, Holder.JOB_SCOPED_IDS.size());
         assertEquals(2, Holder.STEP_SCOPED_IDS.size());
