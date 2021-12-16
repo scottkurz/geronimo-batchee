@@ -58,6 +58,17 @@ public class BatchScopesTest {
         assertTrue(JobScopedBean.isDestroyed());
         assertTrue(StepScopedBean.isDestroyed());
     }
+    
+
+    @Test
+    public void test2() {
+        final JobOperator jobOperator = BatchRuntime.getJobOperator();
+        Properties p = new Properties();
+        p.setProperty("aap2", "blah");
+        Batches.waitForEnd(jobOperator, jobOperator.start("cdiInj", p));
+
+
+    }
 
     @Test
     public void testPartitionedJobScoped() throws Exception {
