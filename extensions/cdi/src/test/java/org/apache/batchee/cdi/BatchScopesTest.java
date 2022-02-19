@@ -66,10 +66,17 @@ public class BatchScopesTest {
         Properties p = new Properties();
         p.setProperty("aap2", "blah");
         Batches.waitForEnd(jobOperator, jobOperator.start("cdiInj", p));
-
-
     }
 
+    @Test
+    public void testNP() {
+        final JobOperator jobOperator = BatchRuntime.getJobOperator();
+        Properties p = new Properties();
+        p.setProperty("aap2", "blah");
+        Batches.waitForEnd(jobOperator, jobOperator.start("namedProducer", p));
+    }
+
+    
     @Test
     public void testPartitionedJobScoped() throws Exception {
 

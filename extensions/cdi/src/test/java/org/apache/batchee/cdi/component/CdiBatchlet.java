@@ -52,8 +52,8 @@ public class CdiBatchlet extends AbstractBatchlet {
     
     @Override
     public String process() throws Exception {
-		System.out.println("SKSK: In process, aa = " + aa);
-        aaBean.m1();
+//		System.out.println("SKSK: In process, aa = " + aa);
+//        aaBean.m1();
         System.out.println("process" + "step name = " + stepCtx.getStepName());
 		Instance<String> myBatchProp = CDI.current().select(String.class, new BatchPropertyLiteral("aa"));
         /*
